@@ -238,16 +238,18 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 --discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
 
+# Create a .kube directory in your home directory:
 ```
 mkdir -p $HOME/.kube
 ```
+# Copy the Kubernetes configuration file to your home directory:
 ``` 
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
+# Change ownership of the file:
 ```  
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-
 
 
 
