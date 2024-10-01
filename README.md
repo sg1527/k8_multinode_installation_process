@@ -251,7 +251,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
-# Multi-Master node control plane 
+# 11.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
 Use this command for retrive the current configuration
 ```
 kubectl -n kube-system get cm kubeadm-config -o yaml > kubeadm-config.yaml
@@ -292,7 +292,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## (ignore)Install Flannel (Run only on master)
+## 12.(ignore)Install Flannel (Run only on master)
 Use the following command to install Flannel:
 ```
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
@@ -307,7 +307,8 @@ kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Do
 wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
 # instead of flannel use calico
-# Install Calico Network
+
+# 13. Install Calico Network
 
 # 1 - Install the operator on your cluster
 ```
