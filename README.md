@@ -153,7 +153,6 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
 ```
 sudo mkdir -p -m 755 /etc/apt/keyrings
 ```
-(ignore it) Old packages below (V1.29) 
 ```
      ## (ignore it) Old packages below (V1.29) 
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
@@ -166,7 +165,8 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --
 ```
 sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
-
+.......
+.......
 ```
 ## (ignore it) (Old Version) below This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 
