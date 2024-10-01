@@ -116,7 +116,7 @@ To install Kubernetes, use the following commands
 ```
 sudo apt-get update
 ```
-# apt-transport-https may be a dummy package; if so, you can skip that package
+#apt-transport-https may be a dummy package; if so, you can skip that package
 # use only new version. kubernetes packages keep on upgrading so you always need to find/use the latest one to install k8.
 Old version (ignore it)
 ```
