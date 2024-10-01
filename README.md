@@ -24,7 +24,7 @@ Update the system's package list and install necessary dependencies using the fo
 
 we are runnning the below all commands with sudo.... so we dont need to go to the root user(root@sg-OptiPlex-7000:~# )like this.....
 # you can install it in regular user which can be (masternode1@masternode1-VirtualBox:~$ ) like this... 
-because of sudo your already installing it in root user so your already having administrative privileges and can execute any command without restrictions.
+because of sudo your already installing it with root access so your having all administrative privileges and can execute any command without restrictions.
 ```
 sudo apt-get update
 sudo apt install apt-transport-https curl -y
