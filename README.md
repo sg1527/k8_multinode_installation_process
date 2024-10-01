@@ -118,7 +118,7 @@ sudo apt-get update
 ```
 #apt-transport-https may be a dummy package; if so, you can skip that package
 # use only new version. kubernetes packages keep on upgrading so you always need to find/use the latest one to install k8.
-(ignore it) Old version 
+(ignore it) Old version below
 ```
  sudo apt-get install -y apt-transport-https ca-certificates curl gpg 
 ```
@@ -130,7 +130,7 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
 ```
 sudo mkdir -p -m 755 /etc/apt/keyrings
 ```
-(ignore it) Old packages (V1.29) 
+(ignore it) Old packages below (V1.29) 
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
@@ -143,7 +143,7 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --
 sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-(ignore it) (Old Version) This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
+(ignore it) (Old Version) below This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
