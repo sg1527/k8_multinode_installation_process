@@ -116,20 +116,20 @@ if above command gives output in this form   Cgroup Driver: systemd
 then everything is ok....and you can skip below things and go to Intall Kubernetes
 
 ```
-              ##ignore if Cgroup Driver: systemd is present
+        ##  ignore if Cgroup Driver: systemd is present
 sudo nano /etc/default/grub
 ```
 #Add below lines - if ....Cgroup Driver: systemd ....is not present otherwise ignore this step.
 ```
-                  ##ignore if Cgroup Driver: systemd is present
+        ##  ignore if Cgroup Driver: systemd is present
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
 ```
 ```
-               ##ignore if Cgroup Driver: systemd is present
+        ##  ignore if Cgroup Driver: systemd is present
 sudo update-grub
 ```
 ```
-                   ##ignore if Cgroup Driver: systemd is present
+       ##  ignore if Cgroup Driver: systemd is present
 sudo reboot
  ```
 
