@@ -22,7 +22,8 @@ The following are the step-by-step instructions for setting up a multi-node Kube
 
 Update the system's package list and install necessary dependencies using the following commands:
 
-we are runnning the below all commands with sudo.... so we dont need to go to the root user(root@sg-OptiPlex-7000:~# )like this.....you can install it in regular user which can be (masternode1@masternode1-VirtualBox:~$ ) like this. because of sudo your already installing it in root user so your alredy having administrative privileges and can execute any command without restrictions.
+we are runnning the below all commands with sudo.... so we dont need to go to the root user(root@sg-OptiPlex-7000:~# )like this.....
+you can install it in regular user which can be (masternode1@masternode1-VirtualBox:~$ ) like this. because of sudo your already installing it in root user so your alredy having administrative privileges and can execute any command without restrictions.
 ```
 sudo apt-get update
 sudo apt install apt-transport-https curl -y
@@ -206,7 +207,9 @@ now you will see below form of output from here run below commands and copy the 
 To start using your cluster, you need to run the following as a regular user:
 
   mkdir -p $HOME/.kube
+  
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 Alternatively, if you are the root user, you can run:
@@ -222,15 +225,15 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 --discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
 
-'''
+```
 mkdir -p $HOME/.kube
-'''
-''' 
+```
+``` 
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-'''
-'''  
+```
+```  
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-'''
+```
 
 
 
