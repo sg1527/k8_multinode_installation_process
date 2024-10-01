@@ -194,12 +194,12 @@ Use the following command to initialize the cluster:
 ```
 sudo kubeadm init
 ```
-(ignore) if you are using flannel then do below
+#(ignore) if you are using flannel then do below
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
 but
 
-
-if you are using calio then use below to initialize the kubeadm
+#if you are using calio then use below to initialize the kubeadm. here we are using calio as it is reliable for all production level deployments.
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 
 now you will see below form of output from here run below commands and copy the token generated to use it on worker node.
