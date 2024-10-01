@@ -18,7 +18,7 @@ Before starting the installation process, ensure that the following prerequisite
 ## Installation Steps
 The following are the step-by-step instructions for setting up a multi-node Kubernetes cluster using Kubeadm:
 
-### ```YOU CAN EITHER RUN THIS COMMANDS MANUALLY OR USE ANSIBLE``` use this repo as Ref: https://github.com/abhic137/ansible-intro
+### 1.```YOU CAN EITHER RUN THIS COMMANDS MANUALLY OR USE ANSIBLE``` use this repo as Ref: https://github.com/abhic137/ansible-intro
 
 Update the system's package list and install necessary dependencies using the following commands:
 
@@ -26,7 +26,7 @@ Update the system's package list and install necessary dependencies using the fo
 sudo apt-get update
 sudo apt install apt-transport-https curl -y
 ```
-## Install Docker
+## 2. Install Docker
 ```
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -47,7 +47,7 @@ sudo apt-get update
 sudo apt-get install containerd.io -y
 ```
 -->
-## Create containerd configuration
+## 3. Create containerd configuration
 Next, create the containerd configuration file using the following commands:
 
 ```
@@ -55,7 +55,7 @@ sudo mkdir -p /etc/containerd
 sudo containerd config default | sudo tee /etc/containerd/config.toml
 ```
 
-## Edit /etc/containerd/config.toml
+## 4. Edit /etc/containerd/config.toml
 Edit the containerd configuration file to set SystemdCgroup to true. Use the following command to open the file:
 
 ```
@@ -78,14 +78,24 @@ Restart containerd:
 ```
 sudo systemctl restart containerd
 ```
-# Edit Cgroup (If you want to change cgroup to systemd)
+# 5. Edit Cgroup (If you want to change cgroup to systemd)
 ```
  docker info | grep -i cgroup
 ```
+masternode1@masternode1-VirtualBox:~$  docker info | grep -i cgroup
+WARNING: bridge-nf-call-iptables is disabled
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+  cgroupns
+WARNING: bridge-nf-call-ip6tables is disabled
+
+if above command gives output in this form   Cgroup Driver: systemd
+then everything is ok....and you can skip below things and go to Intall Kubernetes
+
 ```
  sudo nano /etc/default/grub
 ```
-# Add this line -
+# 6. Add this line -
 ```
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
 ```
@@ -97,13 +107,14 @@ GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
  ```
 
 
-## Install Kubernetes
+## 7. Install Kubernetes
 To install Kubernetes, use the following commands
 ```
 sudo apt-get update
 ```
 # apt-transport-https may be a dummy package; if so, you can skip that package
-# Old version 
+# use only new version k8 packages keep on upgrading so you always need to find/use the latest one.
+Old version (ignore it)
 ```
  sudo apt-get install -y apt-transport-https ca-certificates curl gpg 
 ```
@@ -115,7 +126,7 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
 ```
 sudo mkdir -p -m 755 /etc/apt/keyrings
 ```
-# Old packages (V1.29)
+Old packages (V1.29) (ignore it)
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
@@ -128,7 +139,7 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --
 sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-# (Old Version) This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
+(Old Version)(ignore it) This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
@@ -152,7 +163,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 sudo systemctl enable --now kubelet
 ```
-# Disable swap
+# 8. Disable swap
 Disable swap using the following command:
 
 ```
@@ -162,24 +173,35 @@ sudo swapoff -a
 ```
 sudo nano /etc/fstab
 ```
+here you will see a  sentence with swap name make it # and save.
 
-# Enable kernel modules
+# 9. Enable kernel modules
 ```
 sudo modprobe br_netfilter
 ```
 
-# Add some settings to sysctl
+# 10. Add some settings to sysctl
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
 
-# Initialize the Cluster (Run only on master)
+# 11. Initialize the Cluster (Run only on master)
 
 Use the following command to initialize the cluster:
 ```
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init
 ```
+if you are using flannel then do below
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+but
+
+if you are using calio then use below to initialize the kubeadm
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+
+
+
+
 # Multi-Master node control plane 
 Use this command for retrive the current configuration
 ```
