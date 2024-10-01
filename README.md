@@ -23,7 +23,7 @@ The following are the step-by-step instructions for setting up a multi-node Kube
 Update the system's package list and install necessary dependencies using the following commands:
 
 we are runnning the below all commands with sudo.... so we dont need to go to the root user(root@sg-OptiPlex-7000:~# )like this.....
-you can install it in regular user which can be (masternode1@masternode1-VirtualBox:~$ ) like this. because of sudo your already installing it in root user so your alredy having administrative privileges and can execute any command without restrictions.
+```you can install it in regular user which can be (masternode1@masternode1-VirtualBox:~$ ) like this... because of sudo your already installing it in root user so your alredy having administrative privileges and can execute any command without restrictions.
 ```
 sudo apt-get update
 sudo apt install apt-transport-https curl -y
@@ -193,15 +193,20 @@ sudo sysctl -w net.ipv4.ip_forward=1
 Use the following command to initialize the cluster:
 ```
 sudo kubeadm init
+
+or use below command related to calio 
+
 ```
-#(ignore) if you are using flannel then do below
+#(ignore) if you are using flannel then do below.......
+
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 but
 
-#if you are using calio then use below to initialize the kubeadm. here we are using calio as it is reliable for all production level deployments.
+#if you are using calio then use below to initialize the kubeadm. here we are using calio as it is reliable for all production level deployments....
+```
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
-
+```
 now you will see below form of output from here run below commands and copy the token generated to use it on worker node.
 
 To start using your cluster, you need to run the following as a regular user:
