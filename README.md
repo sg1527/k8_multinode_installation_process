@@ -47,7 +47,15 @@ this will gives an error like (permission denied while trying to connect to the 
 ```
 sudo chmod 777 /var/run/docker.sock
 ```
+```
+docker images
+```
+if you get below kind of output then you can proceed to next step
+masternode1@masternode1-VirtualBox:~$ docker images
 
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+masternode1@masternode1-VirtualBox:~$ 
 
 
 <!--## Install containerd
