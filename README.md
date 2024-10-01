@@ -291,21 +291,21 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## Install Flannel (Run only on master)
+## (ignore)Install Flannel (Run only on master)
 Use the following command to install Flannel:
 ```
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
 
- # Apply kubectl command
+ # (ignore)Apply kubectl command
  ```
  kubectl apply -f kube-flannel.yaml
 ```
-# For Multi-Network Edit kube-flannel.yaml file
+# (ignore)For Multi-Network Edit kube-flannel.yaml file
 ```
 wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
-# OR
+# instead of flannel use calico
 # Install Calico Network
 
 # 1 - Install the operator on your cluster
