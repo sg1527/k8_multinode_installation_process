@@ -86,6 +86,7 @@ sudo systemctl restart containerd
  docker info | grep -i cgroup
 ```
 masternode1@masternode1-VirtualBox:~$  docker info | grep -i cgroup
+
 WARNING: bridge-nf-call-iptables is disabled
  Cgroup Driver: systemd
  Cgroup Version: 2
@@ -98,7 +99,7 @@ then everything is ok....and you can skip below things and go to Intall Kubernet
 ```
  sudo nano /etc/default/grub
 ```
-# Add this line -
+# Add below lines - if ....Cgroup Driver: systemd ....is not present otherwise ignore this step.
 ```
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
 ```
