@@ -61,8 +61,10 @@ Edit the containerd configuration file to set SystemdCgroup to true. Use the fol
 ```
 sudo nano /etc/containerd/config.toml
 ```
+this will open a nano editor..now do Ctrl + w and SystemdCgroup to find its location
+Set SystemdCgroup to true
+Save the changes by pressing Ctrl + X, then Y to confirm, and Enter to save.
 
-Set SystemdCgroup to true:
 ```
 SystemdCgroup = true
 ```
