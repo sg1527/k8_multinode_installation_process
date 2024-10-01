@@ -98,7 +98,7 @@ then everything is ok....and you can skip below things and go to Intall Kubernet
 ```
  sudo nano /etc/default/grub
 ```
-# 6. Add this line -
+# Add this line -
 ```
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
 ```
@@ -110,7 +110,7 @@ GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
  ```
 
 
-## 7. Install Kubernetes
+## 6. Install Kubernetes
 To install Kubernetes, use the following commands
 ```
 sudo apt-get update
@@ -166,7 +166,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 sudo systemctl enable --now kubelet
 ```
-# 8. Disable swap
+# 7. Disable swap
 Disable swap using the following command:
 
 ```
@@ -178,18 +178,18 @@ sudo nano /etc/fstab
 ```
 here you will see a  sentence with swap name make it # and save.
 
-# 9. Enable kernel modules
+# 8. Enable kernel modules
 ```
 sudo modprobe br_netfilter
 ```
 
-# 10. Add some settings to sysctl
+# 9. Add some settings to sysctl
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
 
-# 11. Initialize the Cluster (Run only on master)
+# 10. Initialize the Cluster (Run only on master)
 
 Use the following command to initialize the cluster:
 ```
