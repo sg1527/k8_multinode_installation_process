@@ -30,9 +30,7 @@ sudo apt install apt-transport-https curl -y
 ```
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - .. [ if this showing deprecated use below command]                  
-#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"   ....[ if this showing deprecated use below command]
-curl -fsSL https://get.docker.com/ | sh  ..[use this command instate of above comment out command]
+curl -fsSL https://get.docker.com/ | sh  
 apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo usermod -aG docker ${USER}
