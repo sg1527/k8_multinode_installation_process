@@ -233,7 +233,7 @@ kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Do
 ```
 wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
-## instead of flannel use calico
+  ##        instead of flannel use calico
 
 ## 11. Install Calico Network
 
