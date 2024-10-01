@@ -310,19 +310,19 @@ wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/
 
 # 13. Install Calico Network
 
-# 1 - Install the operator on your cluster
+#  - Install the operator on your cluster
 ```
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
 ```
-# 2 -  Download the custom resources necessary to configure Calico.
+#  -  Download the custom resources necessary to configure Calico.
 ```
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml -O
 ```
-# 3 - Create the manifest to install Calico.
+#  - Create the manifest to install Calico.
 ```
 kubectl create -f custom-resources.yaml
 ```
-# 4 - Verify Calico installation in your cluster.
+#  - Verify Calico installation in your cluster.
 ```
 watch kubectl get pods -n calico-system
 ```
