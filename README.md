@@ -22,6 +22,7 @@ The following are the step-by-step instructions for setting up a multi-node Kube
 
 Update the system's package list and install necessary dependencies using the following commands:
 
+we are runnning the below all commands with sudo.... so we dont need to go to the root user(root@sg-OptiPlex-7000:~# )like this.....you can install it in regular user which can be (masternode1@masternode1-VirtualBox:~$ ) like this. because of sudo your already installing it in root user so your alredy having administrative privileges and can execute any command without restrictions.
 ```
 sudo apt-get update
 sudo apt install apt-transport-https curl -y
@@ -113,7 +114,7 @@ To install Kubernetes, use the following commands
 sudo apt-get update
 ```
 # apt-transport-https may be a dummy package; if so, you can skip that package
-# use only new version k8 packages keep on upgrading so you always need to find/use the latest one.
+# use only new version. kubernetes packages keep on upgrading so you always need to find/use the latest one to install k8.
 Old version (ignore it)
 ```
  sudo apt-get install -y apt-transport-https ca-certificates curl gpg 
@@ -192,12 +193,44 @@ Use the following command to initialize the cluster:
 ```
 sudo kubeadm init
 ```
-if you are using flannel then do below
+(ignore) if you are using flannel then do below
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 but
 
+
 if you are using calio then use below to initialize the kubeadm
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+
+now you will see below form of output from here run below commands and copy the token generated to use it on worker node.
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
+--discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
+
+'''
+mkdir -p $HOME/.kube
+'''
+''' 
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+'''
+'''  
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+'''
 
 
 
