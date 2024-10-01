@@ -203,7 +203,8 @@ sudo swapoff -a
 ```
 sudo nano /etc/fstab
 ```
-here you will see a  sentence with swap name make it # and save.
+here you will see a  sentence (#/swapfile                                 none            swap    sw              0       0
+) make it # and save.
 
 ## 8. Enable kernel modules
 ```
