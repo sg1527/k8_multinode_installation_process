@@ -81,7 +81,7 @@ Restart containerd:
 ```
 sudo systemctl restart containerd
 ```
-# 5. Edit Cgroup (If you want to change cgroup to systemd)
+## 5. Edit Cgroup (If you want to change cgroup to systemd)
 ```
  docker info | grep -i cgroup
 ```
@@ -117,12 +117,12 @@ To install Kubernetes, use the following commands
 sudo apt-get update
 ```
 #apt-transport-https may be a dummy package; if so, you can skip that package
-# use only new version. kubernetes packages keep on upgrading so you always need to find/use the latest one to install k8.
+## use only new version. kubernetes packages keep on upgrading so you always need to find/use the latest one to install k8.
 (ignore it) Old version below
 ```
  sudo apt-get install -y apt-transport-https ca-certificates curl gpg 
 ```
-# New Version
+## New Version
 ```
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg   
 
@@ -134,11 +134,11 @@ sudo mkdir -p -m 755 /etc/apt/keyrings
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
-# New Packages (V1.31)
+## New Packages (V1.31)
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
-# allow unprivileged APT programs to read this keyring
+## allow unprivileged APT programs to read this keyring
 ```
 sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
@@ -147,7 +147,7 @@ sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
-# (New Version) This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
+## (New Version) This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
@@ -167,30 +167,30 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 sudo systemctl enable --now kubelet
 ```
-# 7. Disable swap
+## 7. Disable swap
 Disable swap using the following command:
 
 ```
 sudo swapoff -a
 ```
-# If there are any swap entries in the /etc/fstab file, remove them using a text editor such as nano:
+## If there are any swap entries in the /etc/fstab file, remove them using a text editor such as nano:
 ```
 sudo nano /etc/fstab
 ```
 here you will see a  sentence with swap name make it # and save.
 
-# 8. Enable kernel modules
+## 8. Enable kernel modules
 ```
 sudo modprobe br_netfilter
 ```
 
-# 9. Add some settings to sysctl
+## 9. Add some settings to sysctl
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
 
-# 10. Initialize the Cluster (Run only on master)
+## 10. Initialize the Cluster (Run only on master)
 
 Use the following command to initialize the cluster:
 ```
@@ -238,22 +238,22 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 --discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
 
-# Create a .kube directory in your home directory:
+## Create a .kube directory in your home directory:
 ```
 mkdir -p $HOME/.kube
 ```
-# Copy the Kubernetes configuration file to your home directory:
+## Copy the Kubernetes configuration file to your home directory:
 ``` 
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
-# Change ownership of the file:
+## Change ownership of the file:
 ```  
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 
 
-# 11.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
+## 11.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
 Use this command for retrive the current configuration
 ```
 kubectl -n kube-system get cm kubeadm-config -o yaml > kubeadm-config.yaml
@@ -274,22 +274,22 @@ sudo kubeadm join EXISTING_MASTER_PRIVATE_IP:6443 --token <YOUR_TOKEN> \
 ```
 
 
-# If you are using public ip
+## If you are using public ip
 ```
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans=PUBLIC_IP_MASTER_NODE
 ```
 
-# Create a .kube directory in your home directory:
+## Create a .kube directory in your home directory:
 ```
 mkdir -p $HOME/.kube
 ```
 
-# Copy the Kubernetes configuration file to your home directory:
+## Copy the Kubernetes configuration file to your home directory:
 ```
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
 
-# Change ownership of the file:
+## Change ownership of the file:
 ```
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
@@ -300,31 +300,31 @@ Use the following command to install Flannel:
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
 
- # (ignore)Apply kubectl command
+ ## (ignore)Apply kubectl command
  ```
  kubectl apply -f kube-flannel.yaml
 ```
-# (ignore)For Multi-Network Edit kube-flannel.yaml file
+## (ignore)For Multi-Network Edit kube-flannel.yaml file
 ```
 wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
-# instead of flannel use calico
+## instead of flannel use calico
 
-# 13. Install Calico Network
+## 13. Install Calico Network
 
-#   Install the operator on your cluster
+##   Install the operator on your cluster
 ```
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
 ```
-#   Download the custom resources necessary to configure Calico.
+##   Download the custom resources necessary to configure Calico.
 ```
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml -O
 ```
-#   Create the manifest to install Calico.
+##   Create the manifest to install Calico.
 ```
 kubectl create -f custom-resources.yaml
 ```
-#   Verify Calico installation in your cluster.
+##   Verify Calico installation in your cluster.
 ```
 watch kubectl get pods -n calico-system
 ```
@@ -342,7 +342,7 @@ To add nodes to the cluster, run the kubeadm join command with the appropriate a
 sudo kubeadm join <MASTER_IP>:<MASTER_PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<CA_CERT_HASH>
  
 
-# For other network node
+## For other network node
 Open this file
 
 sudo nano /var/lib/kubelet/kubeadm-flags.env
