@@ -39,6 +39,16 @@ sudo apt install docker-ce
 sudo usermod -aG docker ${USER}
 sudo systemctl status docker
 ```
+```docker images
+```
+this will error like (permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+). so we need to give a permission to /var/run/docker.sock by running it with below command
+```
+sudo chmod 777 /var/run/docker.sock
+```
+
+
+
 <!--## Install containerd
 To install Containerd, use the following commands:
 
