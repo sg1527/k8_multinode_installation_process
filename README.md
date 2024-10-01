@@ -52,8 +52,8 @@ docker images
 ```
 if you get below kind of output then you can proceed to next step
 masternode1@masternode1-VirtualBox:~$ docker images
-
-REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+ 
+REPOSITORY              TAG                   IMAGE ID              CREATED                     SIZE
 
 masternode1@masternode1-VirtualBox:~$ 
 
