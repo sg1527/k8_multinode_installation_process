@@ -99,7 +99,7 @@ then everything is ok....and you can skip below things and go to Intall Kubernet
 ```
  sudo nano /etc/default/grub
 ```
-# Add below lines - if ....Cgroup Driver: systemd ....is not present otherwise ignore this step.
+#Add below lines - if ....Cgroup Driver: systemd ....is not present otherwise ignore this step.
 ```
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
 ```
