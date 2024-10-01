@@ -50,7 +50,7 @@ sudo chmod 777 /var/run/docker.sock
 ```
 docker images
 ```
-if you get below kind of output then you can proceed to next step
+if you get below kind of empty output with heading then you can proceed to next step. it means docker has been installed successfully 
 masternode1@masternode1-VirtualBox:~$ docker images
  
 REPOSITORY              TAG                   IMAGE ID              CREATED                     SIZE
