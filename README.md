@@ -209,8 +209,11 @@ but
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 ```
 output:
+```
+```
 .............
 ........
+
 now you will see below form of output from here run below commands and copy the token generated to use it on worker node.
 
 To start using your cluster, you need to run the following as a regular user:
