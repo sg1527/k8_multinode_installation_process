@@ -117,20 +117,20 @@ then everything is ok....and you can skip below things and go to Intall Kubernet
 
 ```
         ##  ignore if Cgroup Driver: systemd is present
-sudo nano /etc/default/grub
+(ignore it) sudo nano /etc/default/grub
 ```
 #Add below lines - if ....Cgroup Driver: systemd ....is not present otherwise ignore this step.
 ```
         ##  ignore if Cgroup Driver: systemd is present
-GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
+(ignore it) GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"
 ```
 ```
         ##  ignore if Cgroup Driver: systemd is present
-sudo update-grub
+(ignore it) sudo update-grub
 ```
 ```
        ##  ignore if Cgroup Driver: systemd is present
-sudo reboot
+(ignore it) sudo reboot
  ```
 
 
@@ -143,7 +143,7 @@ sudo apt-get update
 ## use only new version. kubernetes packages keep on upgrading so you always need to find/use the latest one to install k8.
 ```
       ## (ignore it) Old version below
- sudo apt-get install -y apt-transport-https ca-certificates curl gpg 
+ (ignore it) sudo apt-get install -y apt-transport-https ca-certificates curl gpg 
 ```
 ## New Version
 ```
@@ -155,7 +155,7 @@ sudo mkdir -p -m 755 /etc/apt/keyrings
 ```
 ```
      ## (ignore it) Old packages below (V1.29) 
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+(ignore it) curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 ## New Packages (V1.31)
 ```
@@ -171,7 +171,7 @@ sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ## (ignore it) (Old Version) below This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 
 
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+(ignore it) echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 ## (New Version) This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 ```
@@ -218,11 +218,6 @@ sudo sysctl -w net.ipv4.ip_forward=1
 
 ## 10. Initialize the Cluster (Run only on master)
 
-Use the following command to initialize the cluster:
-```
-sudo kubeadm init
-
-or use below command related to calio 
 
 ```
 #(ignore) if you are using flannel then do below.......
@@ -361,7 +356,7 @@ curl https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/cu
 kubectl create -f custom-resources.yaml
 ```
 ```
-gedit custom-resources.yaml
+(ignore) gedit custom-resources.yaml
 ```
 it will open a file from here take the cidr: 192.168.0.0/16 mentioned here and this u have to run with sudo kubeadm init --pod-network-cidr=192.168.0.0/16
   ## .....  Verify Calico installation in your cluster.
