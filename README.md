@@ -239,7 +239,7 @@ Output:
 .............
 ........
 
-now you will see below form of output from here run below commands and copy the token generated to use it on worker node.
+now you will see below form of output from here. run below commands you get in this output. and copy the token generated to use it on worker node.
 
 To start using your cluster, you need to run the following as a regular user:
 
