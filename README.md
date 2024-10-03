@@ -199,7 +199,7 @@ Disable swap using the following command:
 ```
 sudo swapoff -a
 ```
-## If there are any swap entries in the /etc/fstab file, remove them using a text editor such as nano:
+## ......If there are any swap entries in the /etc/fstab file, remove them using a text editor such as nano:
 ```
 sudo nano /etc/fstab
 ```
@@ -264,15 +264,15 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 --discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
 
-## Create a .kube directory in your home directory:
+## ......Create a .kube directory in your home directory:
 ```
 mkdir -p $HOME/.kube
 ```
-## Copy the Kubernetes configuration file to your home directory:
+## ......Copy the Kubernetes configuration file to your home directory:
 ``` 
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
-## Change ownership of the file:
+## ......Change ownership of the file:
 ```  
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
@@ -303,22 +303,22 @@ sudo kubeadm join EXISTING_MASTER_PRIVATE_IP:6443 --token <YOUR_TOKEN> \
 ```
 
 
-## If you are using public ip
+## ......If you are using public ip
 ```
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans=PUBLIC_IP_MASTER_NODE
 ```
 
-## Create a .kube directory in your home directory:
+## ......Create a .kube directory in your home directory:
 ```
 mkdir -p $HOME/.kube
 ```
 
-## Copy the Kubernetes configuration file to your home directory:
+## ......Copy the Kubernetes configuration file to your home directory:
 ```
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
 
-## Change ownership of the file:
+## ......Change ownership of the file:
 ```
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
@@ -345,15 +345,15 @@ wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/
 ## 13. Install Calico Network
 
 
-   ##   Install the operator on your cluster
+   ##  ...... Install the operator on your cluster
 ```
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
 ```
-   ##   Download the custom resources necessary to configure Calico.
+   ##  ...... Download the custom resources necessary to configure Calico.
 ```
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml -O
 ```
-  ##   Create the manifest to install Calico.
+  ##  ...... Create the manifest to install Calico.
 ```
 kubectl create -f custom-resources.yaml
 ```
@@ -361,20 +361,21 @@ kubectl create -f custom-resources.yaml
 gedit custom-resources.yaml
 ```
 it will open a file from here take the cidr: 192.168.0.0/16 mentioned here and this u have to run with sudo kubeadm init --pod-network-cidr=192.168.0.0/16
-  ##   Verify Calico installation in your cluster.
+  ## .....  Verify Calico installation in your cluster.
 ```
 watch kubectl get pods -n calico-system
 ```
   
-  ## Verify Installation
+ ## ......Verify Installation
 Verify that all the pods are up and running:
 
 ```
 kubectl get pods --all-namespaces
 ```
 
-
-
+```
+kubectl get pods -A
+```
 
 
 
