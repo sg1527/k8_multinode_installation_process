@@ -216,66 +216,7 @@ sudo modprobe br_netfilter
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
-
-
-
-## 10.(ignore)Install Flannel (Run only on master)
-Use the following command to install Flannel:
-```
-kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
-```
-
- ## (ignore)Apply kubectl command
- ```
- kubectl apply -f kube-flannel.yaml
-```
-## (ignore)For Multi-Network Edit kube-flannel.yaml file
-```
-wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
-```
-  ##  .........      instead of flannel use calico
-
-## 11. Install Calico Network
-#masternode1@masternode1-VirtualBox:~$
-
-```
- #ls (not required)
-```
-```
- #cd Downloads (not required)
-```
-#masternode1@masternode1-VirtualBox:~/Downloads$ 
-...........now inside this download or any such directory we will download and install the calico.........
-
-(above step is not required)
-##   Install the operator on your cluster
-```
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
-```
-##   Download the custom resources necessary to configure Calico.
-```
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml -O
-```
-##   Create the manifest to install Calico.
-```
-kubectl create -f custom-resources.yaml
-```
-##   Verify Calico installation in your cluster.
-```
-watch kubectl get pods -n calico-system
-```
-  
-## Verify Installation
-Verify that all the pods are up and running:
-
-```
-kubectl get pods --all-namespaces
-```
-
-
-
-
-## 12. Initialize the Cluster (Run only on master)
+## 10. Initialize the Cluster (Run only on master)
 
 Use the following command to initialize the cluster:
 ```
@@ -286,7 +227,7 @@ or use below command related to calio
 ```
 #(ignore) if you are using flannel then do below.......
 
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+(ignore) sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 but
 
@@ -341,7 +282,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
-## 13.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
+## 11.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
 Use this command for retrive the current configuration
 ```
 kubectl -n kube-system get cm kubeadm-config -o yaml > kubeadm-config.yaml
@@ -385,6 +326,52 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
+## 12.(ignore)Install Flannel (Run only on master)
+Use the following command to install Flannel:
+```
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
+```
+
+   ## (ignore)Apply kubectl command
+ ```
+ kubectl apply -f kube-flannel.yaml
+```
+   ## (ignore)For Multi-Network Edit kube-flannel.yaml file
+```
+wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
+```
+    ##  .........      instead of flannel use calico
+
+## 13. Install Calico Network
+
+
+   ##   Install the operator on your cluster
+```
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
+```
+   ##   Download the custom resources necessary to configure Calico.
+```
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml -O
+```
+  ##   Create the manifest to install Calico.
+```
+kubectl create -f custom-resources.yaml
+```
+```
+gedit custom-resources.yaml
+```
+it will open a file from here take the cidr: 192.168.0.0/16 mentioned here and this u have to run with sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+  ##   Verify Calico installation in your cluster.
+```
+watch kubectl get pods -n calico-system
+```
+  
+  ## Verify Installation
+Verify that all the pods are up and running:
+
+```
+kubectl get pods --all-namespaces
+```
 
 
 
@@ -396,7 +383,15 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
-## Join Nodes
+
+
+
+
+
+
+
+
+## 14 Join Nodes
 To add nodes to the cluster, run the kubeadm join command with the appropriate arguments on each node. The command will output a token that can be used to join the node to the cluster.
 
 sudo kubeadm join <MASTER_IP>:<MASTER_PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<CA_CERT_HASH>
