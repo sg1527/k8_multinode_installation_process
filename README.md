@@ -215,8 +215,13 @@ sudo modprobe br_netfilter
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
+## 10. .......
+Now, Here if you have already finished a master node installation then and if now your inside your worker node then here you copy-paste your token generated form below step 10.1, its further explanation is given in step 13. 
+but if you have not finished master node installation then follow below steps.
 
-## 10. Initialize the Cluster (Run only on master)
+
+
+## 10.1. Initialize the Cluster (Run only on master)
 
 
 ```
@@ -283,7 +288,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
-## 10.1.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
+## 10.2.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
 Use this command for retrive the current configuration
 
 ```
