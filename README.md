@@ -236,6 +236,16 @@ wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/
   ##  .........      instead of flannel use calico
 
 ## 11. Install Calico Network
+masternode1@masternode1-VirtualBox:~$
+
+```
+ ls
+```
+```
+ cd Downloads
+```
+masternode1@masternode1-VirtualBox:~/Downloads$ 
+...........now inside this download or any such directory we will download and install the calico.........
 
 ##   Install the operator on your cluster
 ```
