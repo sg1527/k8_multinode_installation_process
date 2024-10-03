@@ -236,17 +236,18 @@ wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/
   ##  .........      instead of flannel use calico
 
 ## 11. Install Calico Network
-masternode1@masternode1-VirtualBox:~$
+#masternode1@masternode1-VirtualBox:~$
 
 ```
- ls
+ #ls (not required)
 ```
 ```
- cd Downloads
+ #cd Downloads (not required)
 ```
-masternode1@masternode1-VirtualBox:~/Downloads$ 
+#masternode1@masternode1-VirtualBox:~/Downloads$ 
 ...........now inside this download or any such directory we will download and install the calico.........
 
+(above step is not required)
 ##   Install the operator on your cluster
 ```
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
