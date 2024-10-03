@@ -283,7 +283,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
-## 11.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
+## 10.1.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
 Use this command for retrive the current configuration
 
 ```
@@ -328,7 +328,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 
-## 12.(ignore)Install Flannel (Run only on master node)
+## 11.(ignore)Install Flannel (Run only on master node)
 Use the following command to install Flannel:
 
 ```
@@ -350,7 +350,7 @@ wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/
 
     
 
-## 13. Install Calico Network (Run only on master node)
+## 12. Install Calico Network (Run only on master node)
 
 
    ##  ...... Install the operator on your cluster
@@ -400,7 +400,7 @@ kubectl get pods -A
 
 
 
-## 14. Join Nodes (Run only on worker node)
+## 13. Join Nodes (Run only on worker node)
 
 To add nodes to the cluster, run the kubeadm join command with the appropriate arguments on each node. The command will output a token that can be used to join the node to the cluster.
 
@@ -411,7 +411,7 @@ eg: sudo kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 
 #dont forget to use word sudo before your token while copy-pasting it on your worker node. 
 
-## 15.For other network node  (this is not used yet)
+## 14.For other network node  (this is not used yet)
 Open this file
 
 sudo nano /var/lib/kubelet/kubeadm-flags.env
