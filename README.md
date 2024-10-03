@@ -216,7 +216,7 @@ sudo modprobe br_netfilter
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 ## 10. .......
-Now, Here if you have already finished a master node installation then and if now your inside your worker node then here you copy-paste your token generated form below step 10.1, its further explanation is given in step 13. 
+Now, Here if you have already finished a master node installation then. and if now your inside your worker node then here you copy-paste your token generated from below step 10.1, token joining and its further explanation is given in step 13 check it out. 
 but if you have not finished master node installation then follow below steps.
 
 
