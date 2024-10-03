@@ -225,14 +225,17 @@ sudo sysctl -w net.ipv4.ip_forward=1
 (ignore) sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 but
-
+```
 #if you are using calio then use below to initialize the kubeadm. here we are using calio as it is reliable for all production level deployments....
+
 ```
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 ```
-output:
+
 ```
+Output:
 ```
+
 .............
 ........
 
@@ -260,13 +263,16 @@ kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 --discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
 
 ## ......Create a .kube directory in your home directory:
+
 ```
 mkdir -p $HOME/.kube
 ```
 ## ......Copy the Kubernetes configuration file to your home directory:
+
 ``` 
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
+
 ## ......Change ownership of the file:
 ```  
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -279,6 +285,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ## 11.(ignore this if your working on only one master node) Multi-Master node control plane intallation process
 Use this command for retrive the current configuration
+
 ```
 kubectl -n kube-system get cm kubeadm-config -o yaml > kubeadm-config.yaml
 ```
@@ -323,15 +330,18 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ## 12.(ignore)Install Flannel (Run only on master)
 Use the following command to install Flannel:
+
 ```
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
 
    ## (ignore)Apply kubectl command
+   
  ```
  kubectl apply -f kube-flannel.yaml
 ```
    ## (ignore)For Multi-Network Edit kube-flannel.yaml file
+   
 ```
 wget https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
 ```
@@ -391,10 +401,15 @@ kubectl get pods -A
 
 
 ## 14 Join Nodes
+
 To add nodes to the cluster, run the kubeadm join command with the appropriate arguments on each node. The command will output a token that can be used to join the node to the cluster.
 
 sudo kubeadm join <MASTER_IP>:<MASTER_PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<CA_CERT_HASH>
  
+eg: sudo kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
+--discovery-token-ca-cert-hash sha256:c05759bfed7cad687af8789b25f2ddc75995e533edfa2fabfa7f6e0968df3467 
+
+#dont forget to use word sudo before your token while copy-pasting it on your worker node. 
 
 ## For other network node
 Open this file
