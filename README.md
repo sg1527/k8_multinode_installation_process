@@ -486,6 +486,15 @@ workernode1@workernode1-VirtualBox:~$ kubectl run nginx --image=nginx
 
 this means everything is working well.
 
+```
+# run this on worker or master node 
+workernode1@workernode1-VirtualBox:~$    kubectl get pods 
+```
+
+```
+# run this on worker or master node 
+workernode1@workernode1-VirtualBox:~$    kubectl get pods -o wide
+```
 
 ## Important Links
 https://www.youtube.com/watch?v=pcADx8JFUIA
