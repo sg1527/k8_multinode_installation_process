@@ -431,6 +431,19 @@ systemctl restart kubelet ....(In Master as well as Node)
  
  sudo systemctl status kubelet
 
+
+## 15.Now to run the pods having containarized application in it you need to follow below steps (see video no. 4 for this)
+
+ first You need to have your kubectl context set to the cluster. So that kubectl can communicate with your Kubernetes API server. Typically, this configuration is found in the ~/.kube/config file on your control plane (master) node.
+```
+# run this this on master node
+
+```
+
+
+
+
+
 ## Important Links
 https://www.youtube.com/watch?v=pcADx8JFUIA
 https://www.youtube.com/watch?v=Zxozz8P_l5M
