@@ -496,6 +496,12 @@ workernode1@workernode1-VirtualBox:~$    kubectl get pods
 workernode1@workernode1-VirtualBox:~$    kubectl get pods -o wide
 ```
 
+```
+# run this on worker or master node 
+workernode1@workernode1-VirtualBox:~$    kubectl describe pod nginx
+```
+
+
 ## Important Links
 https://www.youtube.com/watch?v=pcADx8JFUIA
 https://www.youtube.com/watch?v=Zxozz8P_l5M
