@@ -481,7 +481,8 @@ workernode1@workernode1-VirtualBox:~$       scp masternode1@172.27.22.138:~/.kub
 workernode1@workernode1-VirtualBox:~$       kubectl run nginx --image=nginx
 ```
 workernode1@workernode1-VirtualBox:~$ kubectl run nginx --image=nginx
-output:pod/nginx created
+.....
+#output:pod/nginx created
 
 this means everything is working well.
 
