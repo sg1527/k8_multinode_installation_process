@@ -416,7 +416,7 @@ eg: sudo kubeadm join 172.27.22.170:6443 --token mgz8ws.iw2ln8d5e8yf4ocj \
 
 #dont forget to use word sudo before your token while copy-pasting it on your worker node. 
 
-## 14.For other network node  (this is not used yet)
+## 14.  For other network node  (this is not used yet)
 Open this file
 
 sudo nano /var/lib/kubelet/kubeadm-flags.env
@@ -432,7 +432,8 @@ systemctl restart kubelet ....(In Master as well as Node)
  sudo systemctl status kubelet
 
 
-## 15.Now to run the pods having containarized application in it you need to follow below steps (see video no. 4 for this)
+
+## 15. Now to run the pods having containarized application in it you need to follow below steps (see video no. 4 for this)
 
  first You need to have your kubectl context set to the cluster. So that kubectl can communicate with your Kubernetes API server. Typically, this configuration is found in the ~/.kube/config file on your control plane (master) node.
 ```
