@@ -436,10 +436,27 @@ systemctl restart kubelet ....(In Master as well as Node)
 
  first You need to have your kubectl context set to the cluster. So that kubectl can communicate with your Kubernetes API server. Typically, this configuration is found in the ~/.kube/config file on your control plane (master) node.
 ```
-# run this this on master node
-
+# run this on master node
+masternode1@masternode1-VirtualBox:~$        kubectl config view
+```
+```
+# run this on master node
+cat ~/ .kube/config
+```
+```
+# run this on master node
+sudo apt install openssh-server
 ```
 
+```
+# run this on master node (workernode1@172.27.22.239..........is a username of your worker node then @ then ip of that worker node)
+masternode1@masternode1-VirtualBox:~$ ssh workernode1@172.27.22.239
+```
+
+
+```
+# run this on worker node
+```
 
 
 
