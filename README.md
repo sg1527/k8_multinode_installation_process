@@ -444,7 +444,7 @@ masternode1@masternode1-VirtualBox:~$        kubectl config view
 # run this on master node
 cat ~/ .kube/config
 ```
-You need to copy this configuration file to your worker node so that kubectl can be used there as well. You will use scp (Secure Copy Protocol) for this in below commands on worker node.
+You need to copy this configuration file shown the output to your worker node so that kubectl can be used there as well. You will use scp (Secure Copy Protocol) for this in below commands on worker node.
 
 
 
