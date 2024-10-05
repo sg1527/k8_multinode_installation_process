@@ -450,15 +450,35 @@ sudo apt install openssh-server
 
 ```
 # run this on master node (workernode1@172.27.22.239..........is a username of your worker node then @ then ip of that worker node)
-masternode1@masternode1-VirtualBox:~$ ssh workernode1@172.27.22.239
+masternode1@masternode1-VirtualBox:~$       ssh workernode1@172.27.22.239
 ```
 
 
 ```
 # run this on worker node
+workernode1@workernode1-VirtualBox:~$       sudo apt install openssh-server
+```
+
+```
+# run this on worker node
+ workernode1@workernode1-VirtualBox:~$      mkdir -p ~/.kube
+```
+
+```
+# run this on worker node
+workernode1@workernode1-VirtualBox:~$       scp masternode1@172.27.22.138:~/.kube/config ~/.kube/config
 ```
 
 
+```
+# below commands is just to check everything is done well or not. its not compulsory run this on worker node.
+
+workernode1@workernode1-VirtualBox:~$       kubectl run nginx --image=nginx
+```
+workernode1@workernode1-VirtualBox:~$ kubectl run nginx --image=nginx
+output:pod/nginx created
+
+this means everything is working well.
 
 
 ## Important Links
