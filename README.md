@@ -501,6 +501,11 @@ workernode1@workernode1-VirtualBox:~$    kubectl get pods -o wide
 workernode1@workernode1-VirtualBox:~$    kubectl describe pod nginx
 ```
 
+## 14.  Now after this setup after sometime or later any day if your machines got power off/shutdown ....then first just start your masternode machine then worker node machines and run ''kubectl get nodes'' you will see everything is working well. nothing aything else is required to do.
+
+
+
+
 
 ## Important Links
 https://www.youtube.com/watch?v=pcADx8JFUIA
