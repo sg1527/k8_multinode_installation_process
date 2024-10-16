@@ -980,54 +980,19 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 
 
-To delete specific Kubernetes resources like a particular pod, deployment, service, etc., you can use the kubectl delete command followed by the type of resource and its name.
+## To delete specific Kubernetes resources like a particular pod, deployment, service, etc., you can use the kubectl delete command followed by the type of resource and its name.
 
 Here are examples for different resources:
 
-Delete a specific pod
-To delete a pod named my-pod:
-
-bash
-Copy code
-kubectl delete pod my-pod
-If the pod is in a specific namespace:
-
-bash
-Copy code
-kubectl delete pod my-pod -n my-namespace
 Delete a specific deployment
 To delete a deployment named my-deployment:
-
-bash
-Copy code
+```
 kubectl delete deployment my-deployment
+```
+
 If the deployment is in a specific namespace:
-
-bash
-Copy code
+```
 kubectl delete deployment my-deployment -n my-namespace
-Delete a specific service
-To delete a service named my-service:
+```
 
-bash
-Copy code
-kubectl delete service my-service
-If the service is in a specific namespace:
 
-bash
-Copy code
-kubectl delete service my-service -n my-namespace
-Delete other specific resources
-You can replace the resource type (pod, deployment, service) with other types like statefulset, daemonset, job, or configmap, and specify the resource name to delete it.
-
-For example:
-
-Delete a configmap:
-bash
-Copy code
-kubectl delete configmap my-configmap
-Delete a job:
-bash
-Copy code
-kubectl delete job my-job
-These commands delete the specific resources you specify without affecting others.
