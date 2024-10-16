@@ -967,6 +967,7 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 
 
+## 19. Regarding k8s manifest files creatinon 
 
 
 
@@ -979,8 +980,9 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 
 
+## 20. Regarding k8s manifest files delete 
 
-## 19. To delete specific Kubernetes resources like a particular pod, deployment, service, etc., you can use the kubectl delete command followed by the type of resource and its name.
+## specific Kubernetes resources like a particular pod, deployment, service, etc., you can use the kubectl delete command followed by the type of resource and its name.
 
 Here are examples for different resources:
 
