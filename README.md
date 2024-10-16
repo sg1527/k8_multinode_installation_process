@@ -969,6 +969,14 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 ## 19. Regarding k8s manifest files creatinon 
 
+.......when you have multiple Kubernetes resource definition files (deployment,service etc) in a directory and want to create all the resources at once then open terminal in that directoy and run below command.......
+```
+kubectl create -f .
+```
+
+The kubectl create -f . command is used to create resources in Kubernetes from configuration files (YAML or JSON). The -f . part specifies that all the resource files in the current directory (where the command is executed) should be applied.
+
+
 ...........pod related commands..........
 
 
