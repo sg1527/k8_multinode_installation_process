@@ -980,7 +980,7 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 
 
-## To delete specific Kubernetes resources like a particular pod, deployment, service, etc., you can use the kubectl delete command followed by the type of resource and its name.
+## 19. To delete specific Kubernetes resources like a particular pod, deployment, service, etc., you can use the kubectl delete command followed by the type of resource and its name.
 
 Here are examples for different resources:
 
@@ -993,6 +993,24 @@ kubectl delete deployment my-deployment
 If the deployment is in a specific namespace:
 ```
 kubectl delete deployment my-deployment -n my-namespace
+```
+
+Force delete the pod
+If a pod is stuck in the Terminating state for too long, you can forcefully delete it:
+
+```
+kubectl delete pod nginx --grace-period=0 --force
+```
+This command will immediately delete the pod without waiting for Kubernetes' usual grace period.
+
+Check for finalizers
+Sometimes, Kubernetes resources have finalizers, which prevent a resource from being deleted until certain conditions are met. To check if your pod has finalizers, use:
+```
+kubectl get pod nginx -o json | jq '.metadata.finalizers'
+```
+If the pod has any finalizers, you can manually remove them by editing the pod:
+```
+kubectl edit pod nginx
 ```
 
 
