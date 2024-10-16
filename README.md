@@ -1013,7 +1013,30 @@ If the pod has any finalizers, you can manually remove them by editing the pod:
 kubectl edit pod nginx
 ```
 
+1. Delete a specific pod in the default namespace
+```
+kubectl delete pod <pod-name>
+```
+2. Delete all pods in the default namespace
+```
+kubectl delete pods --all
+```
+3. Delete a specific deployment in the default namespace
+```
+kubectl delete deployment <deployment-name>
+```
+4. Delete a specific service in the default namespace
+```
+kubectl delete service <service-name>
+```
+5. Delete all resources (pods, services, deployments, etc.) in the default namespace
+To delete all resources like pods, services, deployments, etc., in the default namespace, you can run:
+```
+kubectl delete all --all
+```
+This will delete all pods, services, deployments, replicasets, etc. in the default namespace.
 
+Ensure you are cautious with these commands as they will remove all the specified resources in the default namespace.
 
 
 
