@@ -969,6 +969,95 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 ## 19. Regarding k8s manifest files creatinon 
 
+pod related commands
+kubectl get nodes -o wide
+
+kubectl get pods -o wide
+
+
+vim pod.yaml
+
+cat  pod.yaml
+
+kubectl apply -f pod.yaml
+or
+kubectl create -f pod.yaml
+
+
+replicaset related commands
+
+kubectl create -f replicaset.yaml 
+
+kubectl get pods
+
+kubectl get replicaset
+(replicaset is a part of  command name of an object replicaset ...not any file or folder name)
+
+
+
+kubectl delete pod myapp-replicaset-8bqd5
+
+kubectl describe replicaset
+
+kubectl edit replicaset myapp-replicaset
+
+kubectl scale replicaset myapp-replicaset --replicas=2
+
+kubectl get all
+
+depployment related commands
+
+vim deployment.yaml
+cat deployment.yaml
+kubectl create -f deployment.yaml
+kubectl get deployments
+kubectl get pods
+kubectl describe deployments myapp-deployment
+kubectl get all
+kubectl rollout status deployment.apps/myapp-deployment
+kubectl delete deployment myapp-deployment
+kubectl create -f deployment.yaml
+kubectl rollout history deployment.apps/myapp-deployment
+kubectl delete deployment myapp-deployment
+kubectl create -f deployment.yaml --record
+kubectl rollout history deployment.apps/myapp-deployment
+kubectl describe deployments myapp-deployment
+kubectl edit deployment myapp-deployment --record
+kubectl rollout status deployment.apps/myapp-deployment
+kubectl describe deployments myapp-deployment
+
+another way to make changes in the deploymet rather that edit is set 
+
+kubectl set deployment myapp-deployment nginx=nginx:1.18-perl 
+
+then to see the chnages use below command
+
+ kubectl edit deployment myapp-deployment 
+or 
+kubectl describe deployments myapp-deployment
+
+kubectl rollout status deployment.apps/myapp-deployment
+kubectl rollout history deployment/myapp-deployment
+
+to delet the last created deploymenr use undo
+kubectl rollout undo deployment/myapp-deployment
+kubectl rollout status deployment.apps/myapp-deployment
+
+
+
+
+services related commands
+
+kubectl create -f service.yaml
+kubectl get service
+workernode1@workernode1-VirtualBox:~/service$ kubectl get service
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP        8d
+myapp-service   NodePort    10.109.82.94   <none>        80:30004/TCP   18s
+
+
+now take the port 30004 and your worker node ip (172.27.22.139).....172.27.22.139:30004 now paste this in u r browser u will be able to access the front end page of u r applcation.
+
 
 
 
