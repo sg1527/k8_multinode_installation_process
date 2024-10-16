@@ -1108,6 +1108,9 @@ If a pod is stuck in the Terminating state for too long, you can forcefully dele
 kubectl delete pod nginx --grace-period=0 --force
 ```
 This command will immediately delete the pod without waiting for Kubernetes' usual grace period.
+```
+kubectl delete pods --all --grace-period=0 --force
+```
 
 Check for finalizers
 Sometimes, Kubernetes resources have finalizers, which prevent a resource from being deleted until certain conditions are met. To check if your pod has finalizers, use:
