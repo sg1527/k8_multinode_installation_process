@@ -995,7 +995,7 @@ If the deployment is in a specific namespace:
 kubectl delete deployment my-deployment -n my-namespace
 ```
 
-Force delete the pod
+## Force delete the pod
 If a pod is stuck in the Terminating state for too long, you can forcefully delete it:
 
 ```
@@ -1013,4 +1013,47 @@ If the pod has any finalizers, you can manually remove them by editing the pod:
 kubectl edit pod nginx
 ```
 
+
+
+
+
+## Deleting resources in a specific namespace
+If you're targeting a specific namespace (e.g., my-namespace), you can use:
+
+```
+# Delete all pods
+kubectl delete pods --all -n my-namespace
+
+# Delete all deployments
+kubectl delete deployments --all -n my-namespace
+
+# Delete all services
+kubectl delete services --all -n my-namespace
+
+# Delete all resources in the namespace
+kubectl delete all --all -n my-namespace
+```
+Deleting resources in all namespaces
+To delete resources across all namespaces, you can use:
+
+```
+# Delete all pods
+kubectl delete pods --all --all-namespaces
+
+# Delete all deployments
+kubectl delete deployments --all --all-namespaces
+
+# Delete all services
+kubectl delete services --all --all-namespaces
+
+# Delete all resources (pods, services, deployments, etc.) in all namespaces
+kubectl delete all --all --all-namespaces
+```
+Deleting a namespace (including all resources inside it)
+If you want to delete an entire namespace, which will also delete all resources inside that namespace:
+
+```
+kubectl delete namespace my-namespace
+```
+Make sure you are cautious with these commands as they will remove all specified resources.
 
