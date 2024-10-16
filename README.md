@@ -1138,7 +1138,7 @@ kubectl delete deployment <deployment-name>
 ```
 kubectl delete service <service-name>
 ```
-5. Delete all resources (pods, services, deployments, etc.) in the default namespace
+## Delete all resources (pods, services, deployments, etc.) in the default namespace
 To delete all resources like pods, services, deployments, etc., in the default namespace, you can run:
 ```
 kubectl delete all --all
