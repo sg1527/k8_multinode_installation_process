@@ -995,7 +995,7 @@ If the deployment is in a specific namespace:
 kubectl delete deployment my-deployment -n my-namespace
 ```
 
-## Force delete the pod
+## Force delete the pod and all other Kubernetes resources (just add the name of that resource in place of pod rest all is same) 
 If a pod is stuck in the Terminating state for too long, you can forcefully delete it:
 
 ```
