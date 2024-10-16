@@ -969,7 +969,9 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 
 ## 19. Regarding k8s manifest files creatinon 
 
-pod related commands
+...........pod related commands..........
+
+
 kubectl get nodes -o wide
 
 kubectl get pods -o wide
@@ -984,7 +986,7 @@ or
 kubectl create -f pod.yaml
 
 
-replicaset related commands
+............replicaset related commands........
 
 kubectl create -f replicaset.yaml 
 
@@ -1005,7 +1007,7 @@ kubectl scale replicaset myapp-replicaset --replicas=2
 
 kubectl get all
 
-depployment related commands
+...............depployment related commands............
 
 vim deployment.yaml
 cat deployment.yaml
@@ -1026,11 +1028,11 @@ kubectl edit deployment myapp-deployment --record
 kubectl rollout status deployment.apps/myapp-deployment
 kubectl describe deployments myapp-deployment
 
-another way to make changes in the deploymet rather that edit is set 
+..another way to make changes in the deploymet rather that edit is set.. 
 
 kubectl set deployment myapp-deployment nginx=nginx:1.18-perl 
 
-then to see the chnages use below command
+..then to see the chnages use below command..
 
  kubectl edit deployment myapp-deployment 
 or 
@@ -1039,14 +1041,15 @@ kubectl describe deployments myapp-deployment
 kubectl rollout status deployment.apps/myapp-deployment
 kubectl rollout history deployment/myapp-deployment
 
-to delet the last created deploymenr use undo
+..to delet the last created deploymenr use undo..
+
 kubectl rollout undo deployment/myapp-deployment
 kubectl rollout status deployment.apps/myapp-deployment
 
 
 
 
-services related commands
+............services related commands.............
 
 kubectl create -f service.yaml
 kubectl get service
@@ -1057,6 +1060,10 @@ myapp-service   NodePort    10.109.82.94   <none>        80:30004/TCP   18s
 
 
 now take the port 30004 and your worker node ip (172.27.22.139).....172.27.22.139:30004 now paste this in u r browser u will be able to access the front end page of u r applcation.
+
+
+
+
 
 
 
