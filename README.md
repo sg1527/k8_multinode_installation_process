@@ -1120,7 +1120,9 @@ kubectl get pod nginx -o json | jq '.metadata.finalizers'
 If the pod has any finalizers, you can manually remove them by editing the pod:
 ```
 kubectl edit pod nginx
+kubectl edit svc frontend-service
 ```
+nginx it is the name of the pod....frontend-service it is the name of the service.
 
 1. Delete a specific pod in the default namespace
 ```
