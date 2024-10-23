@@ -431,9 +431,9 @@ systemctl restart kubelet ....(In Master as well as Node)
  
  sudo systemctl status kubelet
 
+## 15 no need to setup/run the commands given in below 15.2. so ignore 15.2 (this is if u want to setup kubectl on worker node then its useful, but this will make u r worker node as master node which we never do in k8 ususally......solution is create u r deployment and service file on master node and inside deployment file u hv alrrady given a docker hubs image credentials. now mention on which worker node u want to run this deployment and thats it.) 
 
-
-## 15. Now to run the pods having containarized application in it you need to follow below steps (see video no. 4 for this)
+## 15.2. Now to run the pods having containarized application in it you need to follow below steps (see video no. 4 for this)
 
  first You need to have your kubectl context set to the cluster. So that kubectl can communicate with your Kubernetes API server. Typically, this configuration is found in the ~/.kube/config file on your control plane (master) node.
 ```
