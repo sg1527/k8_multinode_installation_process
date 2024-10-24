@@ -984,6 +984,9 @@ The kubectl create -f . command is used to create resources in Kubernetes from c
 
 ...........pod related commands..........
 
+kubectl explain pod (if u want to know how this file should be)
+
+kubectl create -f pod.yaml 
 
 kubectl get nodes -o wide
 
@@ -994,13 +997,14 @@ vim pod.yaml
 
 cat  pod.yaml
 
+kubectl edit pod myapp-pod
+
 kubectl apply -f pod.yaml
-or
-kubectl create -f pod.yaml
+
 
 
 ............replicaset related commands........
-
+kubectl explain replicaset (if u want to know how this file should be)
 kubectl create -f replicaset.yaml 
 
 kubectl get pods
@@ -1015,6 +1019,8 @@ kubectl delete pod myapp-replicaset-8bqd5
 kubectl describe replicaset
 
 kubectl edit replicaset myapp-replicaset
+kubectl apply -f fileName.yaml
+
 
 kubectl scale replicaset myapp-replicaset --replicas=2
 
@@ -1028,6 +1034,8 @@ kubectl create -f deployment.yaml
 kubectl get deployments
 kubectl get pods
 kubectl describe deployments myapp-deployment
+kubectl edit deployment myapp-deployment
+kubectl apply -f fileName.yaml
 kubectl get all
 kubectl rollout status deployment.apps/myapp-deployment
 kubectl delete deployment myapp-deployment
