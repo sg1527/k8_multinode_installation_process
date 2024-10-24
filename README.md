@@ -973,7 +973,12 @@ Check if the kubelet starts successfully now. If there are any other issues, ple
 ```
 kubectl create -f .
 ```
+when you creat an k8 file (eg: abc.yaml) and then you edit it (using kubectl edit deployment abc
+or using vim) make some changes in it. now when u want to apply those changes to that same file use use below apply conmmand
 
+```
+kubectl apply -f abc.yaml
+```
 The kubectl create -f . command is used to create resources in Kubernetes from configuration files (YAML or JSON). The -f . part specifies that all the resource files in the current directory (where the command is executed) should be applied.
 
 
