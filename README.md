@@ -1106,12 +1106,12 @@ kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP        8d
 myapp-service   NodePort    10.109.82.94   <none>        80:30004/TCP   18s
 
 
-kubectl describe svc kubernetes
 
 now take the port 30004 and your worker node ip (172.27.22.139).....172.27.22.139:30004 now paste this in u r browser u will be able to access the front end page of u r applcation.
 
 
 
+kubectl describe svc kubernetes
 
 
 
